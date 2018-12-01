@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  form#formInsert
+    input(type='text', id='jugador', name='jugador', placeholder='Nombre del Jugador')
+    input(type='number', id='anio', name='anio', placeholder='Año')
+    input(type='number', id='goles', name='goles', placeholder='Número de Goles')
+    button.agregar
+      |Hola
+

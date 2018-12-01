@@ -1,8 +1,96 @@
+:root{
+  font-size: calc(0.5em + 1vw);
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 0.7em "Noto Sans";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b0ff99;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1{
+  font-family: "Sedgwick Ave";
+}
+
+.container{
+  margin: 0 auto;
+  width: 85%;
+  text-align: center;
+}
+
+.jugadores{
+  border: 1px solid;
+  width: 100%;
+}
+
+.jugadores > tr > th{
+  width: 20%;
+}
+
+.confForm{
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#formInsert{
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input[type="text"], input[type="number"]{
+  font-size: 1em;
+  padding: 0.2em;
+}
+
+.agregar{
+  background: #00B7FF;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.2em 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.agregar:hover{
+  background: rgb(0, 151, 211);
+}
+
+.btn-ico{
+  border-radius: 3em;
+  font-size: 1em;
+  height: 2.5em;
+  width: 2.5em;
+  padding: 0.25em;
+  border: none;
+  transition: 0.3s;
+  color: #fff;
+  cursor: pointer;
+}
+
+.del{
+  background-color: #ba0000;
+}
+.del:hover{
+  background-color: #810000;
+}
+
+.upd{
+  background-color: #ff9900;
+}
+.upd:hover{
+  background-color: #d47100;
 }

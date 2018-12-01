@@ -1,11 +1,49 @@
 extends layout
 
 block content
-  h1= title
-  form#formInsert
-    input(type='text', id='jugador', name='jugador', placeholder='Nombre del Jugador')
-    input(type='number', id='anio', name='anio', placeholder='Año')
-    input(type='number', id='goles', name='goles', placeholder='Número de Goles')
-    button.agregar
-      |Hola
+  .container
+    h1= title
+    .confForm
+      form#formInsert(action="/goleadores/add", method='POST')
+        input(type='text', id='jugador', name='jugador', placeholder='Nombre del Jugador')
+        input(type='number', id='anio', name='anio', placeholder='Año')
+        input(type='number', id='goles', name='goles', placeholder='Número de Goles')
+        button.agregar
+          |Guardar
+    table.jugadores
+      tr
+        th
+          p Número
+        th
+          p Jugador
+        th
+          p Año
+        th
+          p Goles anotados
+        th
+          p Opciones
+      - let jugadores = resultados;
+      if(jugadores != undefined)
+      - let num = 0;
+        for jugador in jugadores
+          - num++;
+          - let id = jugador['_id'];
+          - let nombre = jugador['jugador'];
+          - let anio = jugador['anio'];
+          - let goles = jugador['goles']
+          tr
+            td
+              p #{num}
+            td
+              p #{nombre}
+            td
+              p #{anio}
+            td
+              p #{goles}
+            td.buttons
+              button.btn-ico.del
+                i.fas.fa-trash-alt
+              button.btn-ico.upd
+                i.fas.fa-edit
+              
 

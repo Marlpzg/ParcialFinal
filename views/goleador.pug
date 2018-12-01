@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .container
+    h1= title
+    h2
+        a(href="/", style="margin-bottom: 1em;") Regresar
+    table.jugadores
+      tr
+        th
+          p ID
+        th
+          p Jugador
+        th
+          p Año
+        th
+          p Goles anotados
+      - let jugador = resultados;
+      if(jugador != undefined)
+        - let id = jugador['_id'];
+        - let nombre = jugador['jugador'];
+        - let anio = jugador['anio'];
+        - let goles = jugador['goles']
+        tr
+        td
+            p #{id}
+        td
+            p #{nombre}
+        td
+            p #{anio}
+        td
+            p #{goles}
+            

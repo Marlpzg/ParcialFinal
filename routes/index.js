@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   Goleador.find({})
   .exec().then((resultado) => {
       console.log(resultado);
-      res.render('index', { title: 'Administrador de Goleadores', resultados: resultado});
+      res.render('index', { title: 'Administrador de Goleadores', resultados: resultado, mensaje: false});
   })
   
 });

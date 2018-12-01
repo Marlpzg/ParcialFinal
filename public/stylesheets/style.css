@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #b0ff99;
+  background-color: #cdffbf;
 }
 
 a {
@@ -28,6 +28,15 @@ h1{
 .jugadores{
   border: 1px solid;
   width: 100%;
+  background: #cecece;
+}
+
+.jugadores tr:nth-child(odd){
+  background: #ebebeb;
+}
+
+.jugadores tr:nth-child(even){
+  background: #ffffff;
 }
 
 .jugadores > tr > th{
@@ -40,6 +49,9 @@ h1{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background: #ffffff;
+  border: 1px solid #000;
+  border-radius: 10px 10px 0 0;
 }
 
 #formInsert{
@@ -47,6 +59,7 @@ h1{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  
 }
 
 input[type="text"], input[type="number"]{
@@ -93,4 +106,47 @@ input[type="text"], input[type="number"]{
 }
 .upd:hover{
   background-color: #d47100;
+}
+
+.idjugador{
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.idjugador:hover{
+  color: #555;
+}
+
+.modal{
+  visibility: hidden;
+  position: fixed;
+  width: 50%;
+  background-color: #cecece;
+  border-radius: 1em;
+  height: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visible{
+  visibility: visible;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5em;
+}
+
+.cerrar{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  cursor: pointer;
 }

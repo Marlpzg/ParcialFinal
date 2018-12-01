@@ -4,16 +4,16 @@ block content
   .container
     h1= title
     .confForm
-      form#formInsert(action="/goleadores/add", method='POST')
-        input(type='text', id='jugador', name='jugador', placeholder='Nombre del Jugador')
-        input(type='number', id='anio', name='anio', placeholder='Año')
-        input(type='number', id='goles', name='goles', placeholder='Número de Goles')
+      form#formInsert(action="/goleadores/", method='POST')
+        input(type='text', id='jugador', name='jugador', placeholder='Nombre del Jugador', required)
+        input(type='number', id='anio', name='anio', placeholder='Año', required)
+        input(type='number', id='goles', name='goles', placeholder='Número de Goles', required)
         button.agregar
           |Guardar
     table.jugadores
       tr
         th
-          p Número
+          p ID
         th
           p Jugador
         th
@@ -26,14 +26,13 @@ block content
       if(jugadores != undefined)
       - let num = 0;
         for jugador in jugadores
-          - num++;
           - let id = jugador['_id'];
           - let nombre = jugador['jugador'];
           - let anio = jugador['anio'];
           - let goles = jugador['goles']
           tr
             td
-              p #{num}
+              a.idjugador(href="/goleadores/"+id) #{id}
             td
               p #{nombre}
             td
@@ -41,9 +40,34 @@ block content
             td
               p #{goles}
             td.buttons
-              button.btn-ico.del
-                i.fas.fa-trash-alt
-              button.btn-ico.upd
+              form(action="/goleadores/"+id+"/del", method="POST")
+                button.btn-ico.del
+                  i.fas.fa-trash-alt
+              button.btn-ico.upd(name=id, onClick='mostrarModal(this)')
                 i.fas.fa-edit
-              
+  .modal
+    button.cerrar
+      i.far.fa-times-circle
+    form.actualizador(method="POST")
+      input(type='text', id='jugador', name='jugador', placeholder='Nombre del Jugador')
+      input(type='number', id='anio', name='anio', placeholder='Año')
+      input(type='number', id='goles', name='goles', placeholder='Número de Goles')
+      button.agregar
+          |Modificar
+  script.
+    let modal = document.getElementsByClassName("modal")[0];
+    let cerrar = document.getElementsByClassName("cerrar")[0];
+    let formu = document.getElementsByClassName("actualizador")[0];
 
+    function mostrarModal(elemento){
+        modal.classList.add("visible");
+        formu.action = "/goleadores/"+elemento.name+"/upd";
+    }
+
+    function cerrarModal(elemento){
+        modal.classList.remove("visible");
+    }
+
+    cerrar.addEventListener("click", ()=>{
+      cerrarModal();
+    })
